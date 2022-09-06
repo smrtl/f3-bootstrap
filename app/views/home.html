@@ -1,0 +1,18 @@
+<check if="{{ @SESSION.username }}">
+  <true>
+    <p>Hello, your are "{{ @SESSION.username }}",</p>
+  </true>
+  <false>
+    <p>Hello anonymous,</p>
+  </false>
+</check>
+
+<p>Your session ID is:<pre>{{ session_id() }}</pre></p>
+<p>
+  Here are some links:<br />
+  - <a href="{{ 'login' | alias }}">login</a><br />
+  - <a href="{{ 'logout' | alias }}">logout</a><br />
+  - <a href="{{ 'page', '*=some/path' | alias }}">some/path</a><br />
+  - <a href="{{ 'page', '*=error' | alias }}">boom</a><br />
+  - <a href="{{ 'admin' | alias }}">Admin</a><br />
+</p>

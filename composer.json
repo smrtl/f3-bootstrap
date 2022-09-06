@@ -1,0 +1,7 @@
+{
+  "name": "smrtl/f3-bootstrap",
+  "type": "project",
+  "require": {
+    "bcosca/fatfree-core": "^3.8"
+  }
+}

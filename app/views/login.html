@@ -1,0 +1,22 @@
+<form method="post" action="{{ 'login' | alias }}" class="login">
+  <h1>Login</h1>
+  <check if="{{ isset(@message) }}">
+    <p class="message">{{ @message }}</p>
+  </check>
+  <p>
+    <label for="username">User</label><br />
+    <input
+      id="username"
+      name="username"
+      type="text"
+      value="{{ isset(@POST.username) ? @POST.username : '' }}"
+    />
+  </p>
+  <p>
+    <label for="password">Password</label><br />
+    <input id="password" name="password" type="password" />
+  </p>
+  <p>
+    <input type="submit" />
+  </p>
+</form>

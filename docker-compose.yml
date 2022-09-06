@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+  php:
+    image: php:7.4-apache
+    command: /var/www/html/docker-php-start.sh
+    ports:
+      - 8080:80
+    volumes:
+      - .:/var/www/html/

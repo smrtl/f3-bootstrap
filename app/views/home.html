@@ -7,12 +7,17 @@
   </false>
 </check>
 
-<p>Your session ID is:<pre>{{ session_id() }}</pre></p>
-<p>
-  Here are some links:<br />
-  - <a href="{{ 'login' | alias }}">login</a><br />
-  - <a href="{{ 'logout' | alias }}">logout</a><br />
-  - <a href="{{ 'page', '*=some/path' | alias }}">some/path</a><br />
-  - <a href="{{ 'page', '*=error' | alias }}">boom</a><br />
-  - <a href="{{ 'admin' | alias }}">Admin</a><br />
-</p>
+<p>Session info</p>
+<ul>
+  <li>SessionID: <span class="code">{{ session_id() }}</span></li>
+  <li>Roles: <span class="code">{{ json_encode(@SESSION.roles) }}</span></li>
+  <li>Expires At: <span class="code">{{ date("Y-m-d H:i:s", @SESSION.expire) }}</span></li>
+</ul>
+<p>Here are some links:</p>
+<ul>
+  <li><a href="{{ 'login' | alias }}">Login</a><br /></li>
+  <li><a href="{{ 'logout' | alias }}">Logout</a><br /></li>
+  <li><a href="{{ 'page', '*=private' | alias }}">Private page</a><br /></li>
+  <li><a href="{{ 'page', '*=error' | alias }}">Error page</a><br /></li>
+  <li><a href="{{ 'admin' | alias }}">Admin</a><br /></li>
+</ul>

@@ -11,7 +11,8 @@ setup:  ## Setups the project
 
 .PHONY: start
 start:  ## Starts the backend in dev mode
-	@docker compose up -d
+	@docker compose up -d && \
+		echo "Server started at http://localhost:8080/"
 
 .PHONY: stop
 stop:  ## Starts the backend in dev mode

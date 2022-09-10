@@ -2,11 +2,14 @@
 
 namespace Controllers;
 
+use Base;
+use Template;
+
 class Controller
 {
   protected string $requiredRole = "";
 
-  public function beforeroute(\Base $f3)
+  public function beforeroute(Base $f3)
   {
     if ($f3->get("SESSION.expire") && $f3->get("SESSION.expire") < time()) {
       $f3->clear("SESSION");
@@ -19,14 +22,14 @@ class Controller
       $roles = $f3->get("SESSION.roles");
 
       if (!is_array($roles) || !in_array($this->requiredRole, $roles)) {
-        $f3->reroute(["login"]);
+        $f3->reroute(["login", null, ["next" => $f3->PATH]]);
       }
     }
   }
 
   public function render($name): void
   {
-    \Base::instance()->set("page", $name . ".html");
-    echo \Template::instance()->render("_layout.html");
+    Base::instance()->set("page", $name . ".html");
+    echo Template::instance()->render("_layout.html");
   }
 }
